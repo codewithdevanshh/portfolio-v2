@@ -125,6 +125,41 @@ const translations = {
   }
 }
 
+
+Object.assign(translations.FR, {
+  'A practical overview of tools across professional exposure at Wipro, personal project work and my current learning. Not every listed technology represents production-level experience.':'Un aperçu des outils utilisés chez Wipro, dans mes projets personnels et dans mon apprentissage actuel. Toutes les technologies listées ne correspondent pas à une expérience en production.',
+  'Java and SQL across application work, database operations and personal backend projects.':'Java et SQL dans le développement applicatif, les opérations de bases de données et les projets backend personnels.',
+  'AWS EC2 and S3 exposure in my current role, alongside cloud concepts I am continuing to develop.':'Expérience d’AWS EC2 et S3 dans mon rôle actuel, ainsi que des notions cloud que je continue d’approfondir.',
+  'Splunk log analysis and AppDynamics application monitoring in an enterprise environment.':'Analyse des journaux avec Splunk et supervision applicative avec AppDynamics en environnement d’entreprise.',
+  'Azure Repos and CI/CD workflow exposure; Docker, Jenkins, Terraform and Kubernetes are areas of hands-on learning.':'Expérience d’Azure Repos et des processus CI/CD ; Docker, Jenkins, Terraform et Kubernetes sont en cours d’apprentissage pratique.',
+  'Linux/Unix fundamentals and server-access tools, with Python and Bash as ongoing learning areas.':'Bases Linux/Unix et outils d’accès aux serveurs ; Python et Bash font partie de mon apprentissage actuel.',
+  'A focused selection of backend, full-stack and frontend projects, with source code and a live demo where available.':'Une sélection de projets backend, full-stack et frontend, avec code source et démonstration en ligne lorsqu’ils sont disponibles.',
+  'Computer Science & Engineering':'Informatique et ingénierie',
+  'Academic background in computer science and engineering. Marks, CGPA and additional academic details are intentionally omitted until they can be verified from the profile.':'Formation en informatique et ingénierie. Les notes, le CGPA et les autres détails académiques sont omis jusqu’à leur vérification.'
+});
+Object.assign(translations.DE, {
+  'A practical overview of tools across professional exposure at Wipro, personal project work and my current learning. Not every listed technology represents production-level experience.':'Ein praktischer Überblick über Werkzeuge aus meiner Tätigkeit bei Wipro, persönlichen Projekten und meinem aktuellen Lernprozess. Nicht jede aufgeführte Technologie steht für Produktionserfahrung.',
+  'Java and SQL across application work, database operations and personal backend projects.':'Java und SQL in der Anwendungsarbeit, im Datenbankbetrieb und in persönlichen Backend-Projekten.',
+  'AWS EC2 and S3 exposure in my current role, alongside cloud concepts I am continuing to develop.':'Erfahrung mit AWS EC2 und S3 in meiner aktuellen Rolle sowie Cloud-Grundlagen, die ich weiter vertiefe.',
+  'Splunk log analysis and AppDynamics application monitoring in an enterprise environment.':'Log-Analyse mit Splunk und Anwendungsüberwachung mit AppDynamics in einer Unternehmensumgebung.',
+  'Azure Repos and CI/CD workflow exposure; Docker, Jenkins, Terraform and Kubernetes are areas of hands-on learning.':'Erfahrung mit Azure Repos und CI/CD-Abläufen; Docker, Jenkins, Terraform und Kubernetes vertiefe ich praktisch.',
+  'Linux/Unix fundamentals and server-access tools, with Python and Bash as ongoing learning areas.':'Linux/Unix-Grundlagen und Serverzugriffswerkzeuge; Python und Bash sind aktuelle Lernbereiche.',
+  'A focused selection of backend, full-stack and frontend projects, with source code and a live demo where available.':'Eine Auswahl an Backend-, Full-Stack- und Frontend-Projekten mit Quellcode und Live-Demo, sofern verfügbar.',
+  'Computer Science & Engineering':'Informatik und Ingenieurwesen',
+  'Academic background in computer science and engineering. Marks, CGPA and additional academic details are intentionally omitted until they can be verified from the profile.':'Akademischer Hintergrund in Informatik und Ingenieurwesen. Noten, CGPA und weitere Angaben bleiben bis zur Überprüfung des Profils bewusst offen.'
+});
+Object.assign(translations.ES, {
+  'A practical overview of tools across professional exposure at Wipro, personal project work and my current learning. Not every listed technology represents production-level experience.':'Una visión práctica de herramientas utilizadas en mi trabajo en Wipro, proyectos personales y aprendizaje actual. No todas las tecnologías representan experiencia en producción.',
+  'Java and SQL across application work, database operations and personal backend projects.':'Java y SQL en desarrollo de aplicaciones, operaciones de bases de datos y proyectos backend personales.',
+  'AWS EC2 and S3 exposure in my current role, alongside cloud concepts I am continuing to develop.':'Experiencia con AWS EC2 y S3 en mi puesto actual, junto con conceptos de nube que sigo desarrollando.',
+  'Splunk log analysis and AppDynamics application monitoring in an enterprise environment.':'Análisis de registros con Splunk y monitorización de aplicaciones con AppDynamics en un entorno empresarial.',
+  'Azure Repos and CI/CD workflow exposure; Docker, Jenkins, Terraform and Kubernetes are areas of hands-on learning.':'Experiencia con Azure Repos y flujos CI/CD; Docker, Jenkins, Terraform y Kubernetes son áreas de aprendizaje práctico.',
+  'Linux/Unix fundamentals and server-access tools, with Python and Bash as ongoing learning areas.':'Fundamentos de Linux/Unix y herramientas de acceso a servidores; Python y Bash forman parte de mi aprendizaje actual.',
+  'A focused selection of backend, full-stack and frontend projects, with source code and a live demo where available.':'Una selección de proyectos backend, full-stack y frontend, con código fuente y demostración en vivo cuando está disponible.',
+  'Computer Science & Engineering':'Informática e Ingeniería',
+  'Academic background in computer science and engineering. Marks, CGPA and additional academic details are intentionally omitted until they can be verified from the profile.':'Formación académica en informática e ingeniería. Las calificaciones, el CGPA y otros datos se omiten hasta poder verificarlos en el perfil.'
+});
+
 function LocalizedTree({ children }) {
   const { language } = useContext(LanguageContext)
   const dictionary = translations[language] || {}
