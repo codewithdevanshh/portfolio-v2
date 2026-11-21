@@ -1,6 +1,6 @@
 import { cloneElement, createContext, isValidElement, useContext, useEffect, useRef, useState } from 'react'
 import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { ArrowDownRight, ArrowLeft, ArrowUpRight, Github, Linkedin, Mail, Menu, X, Terminal, Cloud, Server, Code2, Activity, Workflow, Command, CheckCircle2, Copy, Layers, Database, GraduationCap, BriefcaseBusiness, Globe2, Sparkles, ExternalLink, Sun, Moon, ChevronDown, Check } from 'lucide-react'
+import { ArrowDownRight, ArrowLeft, ArrowUpRight, Github, Linkedin, Mail, Menu, X, Terminal, Cloud, Server, Code2, Activity, Workflow, Command, CheckCircle2, Copy, Layers, Database, GraduationCap, BriefcaseBusiness, Globe2, Sparkles, ExternalLink, Sun, Moon, ChevronDown, Check, Instagram } from 'lucide-react'
 
 const profile = {
   name: 'Devansh Mishra',
@@ -178,11 +178,11 @@ function LocalizedTree({ children }) {
 }
 
 function Header({theme,setTheme}) {
-  const [open,setOpen]=useState(false), [languageOpen,setLanguageOpen]=useState(false), {language,setLanguage}=useContext(LanguageContext), location=useLocation(), languageRef=useRef(null)
-  useEffect(()=>setOpen(false),[location])
+  const [open,setOpen]=useState(false), [languageOpen,setLanguageOpen]=useState(false), [connectOpen,setConnectOpen]=useState(false), {language,setLanguage}=useContext(LanguageContext), location=useLocation(), languageRef=useRef(null), connectRef=useRef(null)
+  useEffect(()=>{setOpen(false);setConnectOpen(false)},[location])
   useEffect(()=>{
-    const closeLanguageMenu=(event)=>{if(languageRef.current&&!languageRef.current.contains(event.target))setLanguageOpen(false)}
-    const closeOnEscape=(event)=>{if(event.key==='Escape')setLanguageOpen(false)}
+    const closeLanguageMenu=(event)=>{if(languageRef.current&&!languageRef.current.contains(event.target))setLanguageOpen(false);if(connectRef.current&&!connectRef.current.contains(event.target))setConnectOpen(false)}
+    const closeOnEscape=(event)=>{if(event.key==='Escape'){setLanguageOpen(false);setConnectOpen(false)}}
     document.addEventListener('pointerdown',closeLanguageMenu)
     document.addEventListener('keydown',closeOnEscape)
     return ()=>{document.removeEventListener('pointerdown',closeLanguageMenu);document.removeEventListener('keydown',closeOnEscape)}
@@ -203,7 +203,14 @@ function Header({theme,setTheme}) {
         </button>)}</div>}
       </div>
       <button className="theme-toggle" onClick={()=>setTheme(theme==='dark'?'light':'dark')} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun size={17}/>:<Moon size={17}/>}<span>{theme==='dark'?'LIGHT':'DARK'}</span></button>
-      <a className="nav-cta" href={`mailto:${profile.email}`}>Let's talk <ArrowUpRight size={15}/></a>
+      <div className="connect-picker" ref={connectRef}>
+        <button type="button" className="nav-cta connect-trigger" onClick={()=>setConnectOpen(value=>!value)} aria-haspopup="menu" aria-expanded={connectOpen}>Let's talk <ArrowUpRight size={15}/></button>
+        {connectOpen&&<div className="connect-menu" role="menu" aria-label="Choose where to connect">
+          <span className="connect-menu-label">CHOOSE WHERE TO CONNECT</span>
+          <a role="menuitem" href="https://www.instagram.com/https._.devansh/" target="_blank" rel="noreferrer" onClick={()=>setConnectOpen(false)}><Instagram size={16}/><span><strong>Instagram</strong><small>Follow / message me</small></span><ArrowUpRight size={14}/></a>
+          <a role="menuitem" href={profile.linkedin} target="_blank" rel="noreferrer" onClick={()=>setConnectOpen(false)}><Linkedin size={16}/><span><strong>LinkedIn</strong><small>Connect professionally</small></span><ArrowUpRight size={14}/></a>
+        </div>}
+      </div>
     </div>
   </header></LocalizedTree>
 }
