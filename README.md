@@ -9,4 +9,4 @@ Responsive multi-page React portfolio built with Vite and React Router.
 `npm run build`.
 
 ## Before publishing
-Update the profile object in `src/App.jsx` with the verified public name, email and LinkedIn URL. Replace project placeholders with real work and repositories. Do not publish placeholder contact details.
+The public portfolio name is set to Devansh Mishra. Update the email and LinkedIn URL in `src/App.jsx` before publishing. Replace project placeholders with real work and repositories. Do not publish placeholder contact details.
