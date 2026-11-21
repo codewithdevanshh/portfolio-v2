@@ -1641,3 +1641,87 @@ main{width:100%;min-width:0}
   .hero-code pre{width:100%!important;max-width:100%!important;overflow-x:auto!important}
   .stats-band,.stats-grid{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
 }
+
+
+/* Global horizontal overflow fix — constrain decorative layers to viewport */
+html{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip!important;
+}
+body{
+  width:100%;
+  max-width:100%;
+  min-width:0!important;
+  overflow-x:clip!important;
+}
+#root{
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  overflow-x:clip!important;
+}
+main,.header,.footer,.contact-banner,.section,.stats-band{
+  max-width:100%;
+  min-width:0;
+}
+/* The hero glow was positioned beyond the right viewport edge.
+   Keep the glow inside the hero instead of creating document scroll width. */
+.hero{
+  position:relative;
+  isolation:isolate;
+  width:min(1160px,calc(100% - 64px));
+  max-width:100%;
+  min-width:0;
+  overflow:clip!important;
+}
+.hero::after{
+  right:0!important;
+  max-width:100%!important;
+  width:min(100%,680px)!important;
+  pointer-events:none;
+}
+@media(max-width:1024px){
+  .hero{
+    width:calc(100% - 48px)!important;
+    max-width:100%!important;
+    overflow:clip!important;
+  }
+  .hero::after{
+    right:0!important;
+    width:100%!important;
+    max-width:100%!important;
+  }
+}
+@media(max-width:600px){
+  .hero{
+    width:100%!important;
+    max-width:100%!important;
+    padding-left:18px!important;
+    padding-right:18px!important;
+    overflow:clip!important;
+  }
+  .hero::after{
+    right:0!important;
+    top:0!important;
+    width:100%!important;
+    height:100%!important;
+    max-width:100%!important;
+    opacity:.45!important;
+  }
+}
+/* Ensure grids and long content cannot widen their page */
+.container,.page-intro,.hero-main,.hero-copy,.hero-code,
+.stats-grid,.about-detail,.values-grid,.skill-grid,.project-grid,
+.experience-entry,.learning-row,.contact-layout,.footer{
+  min-width:0;
+  max-width:100%;
+}
+.project-grid>*,
+.skill-grid>*,
+.values-grid>*,
+.stats-grid>*,
+.footer>*{
+  min-width:0;
+}
+pre,code{max-width:100%}
