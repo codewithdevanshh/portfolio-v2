@@ -1581,3 +1581,63 @@ main{width:100%;min-width:0}
   .footer-brand,.footer-bottom,.footer-nav{grid-column:1!important}
   .footer-nav{align-items:flex-start!important}
 }
+
+
+/* Hotfix: remove horizontal page offset/clipping on narrow mobile viewports */
+@media(max-width:600px){
+  html,body,#root,#root>*,main{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  body{overflow-x:hidden!important}
+  #root{overflow-x:hidden!important}
+  .header{
+    width:100%!important;
+    max-width:100%!important;
+    margin:0!important;
+    padding-left:14px!important;
+    padding-right:14px!important;
+    box-sizing:border-box!important;
+  }
+  .header>.brand{margin:0!important;transform:none!important}
+  .header>.header-actions{margin-left:auto!important;transform:none!important}
+  .hero{
+    display:flex!important;
+    width:100%!important;
+    max-width:1160px!important;
+    margin:0 auto!important;
+    padding-left:18px!important;
+    padding-right:18px!important;
+    box-sizing:border-box!important;
+    overflow:visible!important;
+  }
+  .hero-main{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin:0!important;
+    padding-left:0!important;
+    padding-right:0!important;
+    box-sizing:border-box!important;
+  }
+  .hero-copy,.hero-code,.hero-scroll{
+    width:100%!important;
+    max-width:100%!important;
+    min-width:0!important;
+    margin-left:0!important;
+    margin-right:0!important;
+  }
+  .hero-copy h1.hero-title{
+    width:100%!important;
+    max-width:100%!important;
+    overflow-wrap:normal!important;
+    word-break:normal!important;
+  }
+  .hero-desc,.role-line{max-width:100%!important}
+  .hero-code{transform:none!important}
+  .hero-code pre{width:100%!important;max-width:100%!important;overflow-x:auto!important}
+  .stats-band,.stats-grid{width:100%!important;max-width:100%!important;margin-left:0!important;margin-right:0!important}
+}
