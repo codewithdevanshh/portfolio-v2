@@ -1329,3 +1329,53 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 @media(min-width:1025px){
   .header-actions .language-trigger-name{overflow:hidden;text-overflow:ellipsis}
 }
+
+
+/* Final header geometry: reserve real space for translated nav and action controls */
+@media(min-width:1025px){
+  .header{
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1fr) auto!important;
+    align-items:center!important;
+    column-gap:clamp(18px,2vw,34px)!important;
+    padding-left:max(28px,calc((100vw - 1600px)/2))!important;
+    padding-right:max(28px,calc((100vw - 1600px)/2))!important;
+    overflow:visible!important;
+  }
+  .header>.brand{grid-column:1;justify-self:start}
+  .header>.nav{
+    grid-column:2;justify-self:center;
+    width:max-content;max-width:100%;
+    display:flex!important;flex-wrap:nowrap!important;
+    align-items:center!important;justify-content:center!important;
+    gap:clamp(12px,1.25vw,20px)!important;
+    min-width:0!important;
+    overflow:visible!important;
+  }
+  .header>.nav .nav-link{
+    flex:0 0 auto!important;
+    white-space:nowrap!important;
+    font-size:clamp(10px,.72vw,12px)!important;
+    letter-spacing:-.02em!important;
+  }
+  .header>.header-actions{
+    grid-column:3;justify-self:end;
+    display:flex!important;flex-wrap:nowrap!important;
+    align-items:center!important;justify-content:flex-end!important;
+    gap:10px!important;min-width:max-content!important;
+  }
+  .header-actions .language-picker{width:154px!important;min-width:154px!important;flex:0 0 154px!important}
+  .header-actions .language-trigger{width:154px!important;min-width:154px!important;gap:9px!important;padding-inline:12px!important}
+  .header-actions .language-trigger-name{overflow:visible!important;text-overflow:clip!important;white-space:nowrap!important}
+  .header-actions .theme-toggle{flex:0 0 auto!important}
+  .header-actions .nav-cta{flex:0 0 auto!important;white-space:nowrap!important}
+}
+@media(min-width:1025px) and (max-width:1280px){
+  .header{padding-inline:24px!important;column-gap:14px!important}
+  .header>.nav{gap:clamp(8px,1vw,12px)!important}
+  .header>.nav .nav-link{font-size:10px!important}
+  .header-actions{gap:7px!important}
+  .header-actions .language-picker,.header-actions .language-trigger{width:138px!important;min-width:138px!important;flex-basis:138px!important}
+  .header-actions .language-trigger{padding-inline:9px!important;gap:6px!important}
+  .header-actions .nav-cta{padding-inline:11px!important;font-size:10px!important}
+}
