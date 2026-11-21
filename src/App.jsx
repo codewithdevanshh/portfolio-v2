@@ -55,6 +55,18 @@ const translations = {
     'HAVE A PROJECT OR AN OPPORTUNITY?':'UN PROJET OU UNE OPPORTUNITÉ ?','Let\'s build something':'Construisons quelque chose','meaningful together.':'qui a du sens ensemble.',
     '404 / PAGE NOT FOUND':'404 / PAGE INTROUVABLE','Lost in the':'Perdu dans le','system.':'système.','Back home':'Retour à l’accueil'
   },
+        "AVAILABLE FOR COLLABORATION":"DISPONIBLE POUR COLLABORER",
+    "BUILD · LEARN · IMPROVE":"CRÉER · APPRENDRE · PROGRESSER",
+    "MAR 2025 — PRESENT":"MARS 2025 — AUJOURD’HUI",
+    "Working as a Project Engineer at Wipro in an enterprise technology environment, contributing to application workflows, database operations, application observability, AWS services and CI/CD activities.":"Project Engineer chez Wipro dans un environnement technologique d’entreprise, avec une contribution aux processus applicatifs, aux opérations de bases de données, à l’observabilité, aux services AWS et aux activités CI/CD.",
+    "Develop and maintain SQL queries for database CRUD operations and application data workflows.":"Développer et maintenir des requêtes SQL pour les opérations CRUD et les flux de données applicatifs.",
+    "Use Splunk and AppDynamics to analyse application logs, review performance metrics and improve application observability.":"Utiliser Splunk et AppDynamics pour analyser les journaux, examiner les indicateurs de performance et améliorer l’observabilité.",
+    "Work with AWS EC2 and S3 as part of cloud and environment-related activities.":"Travailler avec AWS EC2 et S3 dans le cadre des activités cloud et d’environnement.",
+    "Work with Linux-based environments and server tools as part of application and deployment workflows.":"Travailler avec des environnements Linux et des outils serveur dans les processus applicatifs et de déploiement.",
+    "Use Azure Repos and participate in CI/CD pipeline-related activities.":"Utiliser Azure Repos et participer aux activités liées aux pipelines CI/CD.",
+    "My public GitHub profile currently provides project repositories but not enough verified detail to list earlier internship employers and dates. Those can be added once confirmed.":"Mon profil GitHub public présente des dépôts de projets, mais ne fournit pas encore assez d’informations vérifiées sur les employeurs et les dates de stages précédents. Ces détails pourront être ajoutés après confirmation.",
+    "LinkedIn lists Chandigarh Engineering College and a Computer Science and Engineering degree from 2020–2024. Please verify the exact qualification, campus name and dates before the site is published; I have not filled marks, CGPA or coursework from assumptions.":"LinkedIn indique Chandigarh Engineering College et un diplôme en informatique de 2020 à 2024. La qualification exacte, le campus et les dates doivent être vérifiés avant publication ; aucune note ni moyenne n’a été supposée.",
+    "Current engineering focus: Java · Python · Linux · AWS · REST APIs · Docker · CI/CD · Terraform · Kubernetes":"Domaines actuels : Java · Python · Linux · AWS · API REST · Docker · CI/CD · Terraform · Kubernetes",
   DE: {
     'Home':'Startseite','About':'Über mich','Skills':'Fähigkeiten','Projects':'Projekte','Experience':'Erfahrung','Education':'Ausbildung','Contact':'Kontakt',"Let's talk":'Kontakt aufnehmen',
     'NAVIGATE':'NAVIGATION','CONNECT':'KONTAKT','Email':'E-Mail','All rights reserved.':'Alle Rechte vorbehalten.',
@@ -89,6 +101,18 @@ const translations = {
     'HAVE A PROJECT OR AN OPPORTUNITY?':'EIN PROJEKT ODER EINE GELEGENHEIT?','Let\'s build something':'Lass uns etwas','meaningful together.':'Bedeutungsvolles schaffen.',
     '404 / PAGE NOT FOUND':'404 / SEITE NICHT GEFUNDEN','Lost in the':'Verloren im','system.':'System.','Back home':'Zur Startseite'
   },
+        "AVAILABLE FOR COLLABORATION":"FÜR ZUSAMMENARBEIT VERFÜGBAR",
+    "BUILD · LEARN · IMPROVE":"ENTWICKELN · LERNEN · VERBESSERN",
+    "MAR 2025 — PRESENT":"MÄRZ 2025 — HEUTE",
+    "Working as a Project Engineer at Wipro in an enterprise technology environment, contributing to application workflows, database operations, application observability, AWS services and CI/CD activities.":"Als Project Engineer bei Wipro in einem Unternehmensumfeld tätig; Mitarbeit an Anwendungsabläufen, Datenbankoperationen, Anwendungsbeobachtung, AWS-Diensten und CI/CD-Aktivitäten.",
+    "Develop and maintain SQL queries for database CRUD operations and application data workflows.":"SQL-Abfragen für CRUD-Datenbankoperationen und Anwendungsdatenprozesse entwickeln und pflegen.",
+    "Use Splunk and AppDynamics to analyse application logs, review performance metrics and improve application observability.":"Splunk und AppDynamics zur Analyse von Anwendungsprotokollen, Leistungskennzahlen und Anwendungsbeobachtung einsetzen.",
+    "Work with AWS EC2 and S3 as part of cloud and environment-related activities.":"Mit AWS EC2 und S3 im Rahmen von Cloud- und Umgebungsaktivitäten arbeiten.",
+    "Work with Linux-based environments and server tools as part of application and deployment workflows.":"Linux-Umgebungen und Serverwerkzeuge in Anwendungs- und Bereitstellungsprozessen verwenden.",
+    "Use Azure Repos and participate in CI/CD pipeline-related activities.":"Azure Repos verwenden und an CI/CD-Pipeline-Aktivitäten mitwirken.",
+    "My public GitHub profile currently provides project repositories but not enough verified detail to list earlier internship employers and dates. Those can be added once confirmed.":"Mein öffentliches GitHub-Profil enthält Projekt-Repositories, aber noch nicht genügend bestätigte Angaben zu früheren Praktikumsunternehmen und Zeiträumen. Diese können nach Bestätigung ergänzt werden.",
+    "LinkedIn lists Chandigarh Engineering College and a Computer Science and Engineering degree from 2020–2024. Please verify the exact qualification, campus name and dates before the site is published; I have not filled marks, CGPA or coursework from assumptions.":"Auf LinkedIn sind das Chandigarh Engineering College und ein Abschluss in Informatik von 2020 bis 2024 aufgeführt. Abschlussbezeichnung, Campus und Zeitraum müssen vor Veröffentlichung bestätigt werden; Noten und Studieninhalte wurden nicht angenommen.",
+    "Current engineering focus: Java · Python · Linux · AWS · REST APIs · Docker · CI/CD · Terraform · Kubernetes":"Aktueller Fokus: Java · Python · Linux · AWS · REST-APIs · Docker · CI/CD · Terraform · Kubernetes",
   ES: {
     'Home':'Inicio','About':'Sobre mí','Skills':'Habilidades','Projects':'Proyectos','Experience':'Experiencia','Education':'Formación','Contact':'Contacto',"Let's talk":'Hablemos',
     'NAVIGATE':'NAVEGAR','CONNECT':'CONECTAR','Email':'Correo','All rights reserved.':'Todos los derechos reservados.',
@@ -122,7 +146,19 @@ const translations = {
     'India · Open to remote conversations':'India · Abierto a conversaciones remotas','Software engineering, cloud infrastructure, DevOps and problem-solving.':'Ingeniería de software, infraestructura cloud, DevOps y resolución de problemas.','Open to meaningful conversations and relevant opportunities.':'Abierto a conversaciones interesantes y oportunidades relevantes.',
     'HAVE A PROJECT OR AN OPPORTUNITY?':'¿UN PROYECTO O UNA OPORTUNIDAD?','Let\'s build something':'Construyamos algo','meaningful together.':'significativo juntos.',
     '404 / PAGE NOT FOUND':'404 / PÁGINA NO ENCONTRADA','Lost in the':'Perdido en el','system.':'sistema.','Back home':'Volver al inicio'
-  }
+  }        "AVAILABLE FOR COLLABORATION":"DISPONIBLE PARA COLABORAR",
+    "BUILD · LEARN · IMPROVE":"CREAR · APRENDER · MEJORAR",
+    "MAR 2025 — PRESENT":"MAR 2025 — ACTUALIDAD",
+    "Working as a Project Engineer at Wipro in an enterprise technology environment, contributing to application workflows, database operations, application observability, AWS services and CI/CD activities.":"Trabajo como Project Engineer en Wipro en un entorno tecnológico empresarial, contribuyendo a los flujos de aplicaciones, operaciones de bases de datos, observabilidad, servicios de AWS y actividades CI/CD.",
+    "Develop and maintain SQL queries for database CRUD operations and application data workflows.":"Desarrollar y mantener consultas SQL para operaciones CRUD y flujos de datos de aplicaciones.",
+    "Use Splunk and AppDynamics to analyse application logs, review performance metrics and improve application observability.":"Utilizar Splunk y AppDynamics para analizar registros, revisar métricas de rendimiento y mejorar la observabilidad de aplicaciones.",
+    "Work with AWS EC2 and S3 as part of cloud and environment-related activities.":"Trabajar con AWS EC2 y S3 en actividades relacionadas con cloud y entornos.",
+    "Work with Linux-based environments and server tools as part of application and deployment workflows.":"Trabajar con entornos Linux y herramientas de servidor en procesos de aplicaciones y despliegue.",
+    "Use Azure Repos and participate in CI/CD pipeline-related activities.":"Utilizar Azure Repos y participar en actividades relacionadas con pipelines CI/CD.",
+    "My public GitHub profile currently provides project repositories but not enough verified detail to list earlier internship employers and dates. Those can be added once confirmed.":"Mi perfil público de GitHub incluye repositorios de proyectos, pero aún no contiene suficientes datos verificados sobre empresas y fechas de prácticas anteriores. Se podrán añadir cuando se confirmen.",
+    "LinkedIn lists Chandigarh Engineering College and a Computer Science and Engineering degree from 2020–2024. Please verify the exact qualification, campus name and dates before the site is published; I have not filled marks, CGPA or coursework from assumptions.":"LinkedIn indica Chandigarh Engineering College y un título en Informática e Ingeniería de 2020 a 2024. Hay que confirmar el título exacto, el campus y las fechas antes de publicar; no se han supuesto notas ni asignaturas.",
+    "Current engineering focus: Java · Python · Linux · AWS · REST APIs · Docker · CI/CD · Terraform · Kubernetes":"Enfoque actual: Java · Python · Linux · AWS · API REST · Docker · CI/CD · Terraform · Kubernetes",
+
 }
 
 function applyTranslations(root, language, originals) {
@@ -137,8 +173,8 @@ function applyTranslations(root, language, originals) {
     const trimmed = source.trim()
     if (!trimmed) continue
     const translated = dictionary[trimmed]
-    if (translated) node.nodeValue = source.replace(trimmed, translated)
-    else node.nodeValue = source
+    const target = translated ? source.replace(trimmed, translated) : source
+    if (node.nodeValue !== target) node.nodeValue = target
   }
 }
 
