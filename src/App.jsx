@@ -17,9 +17,19 @@ const profile = {
 const nav = [['Home','/en'],['About','/en/about'],['Skills','/en/skills'],['Projects','/en/projects'],['Experience','/en/experience'],['Education','/en/education'],['Contact','/en/contact']]
 
 function Header({theme,setTheme}) {
-  const [open,setOpen]=useState(false), location=useLocation()
+  const [open,setOpen]=useState(false), [language,setLanguage]=useState('EN'), location=useLocation()
   useEffect(()=>setOpen(false),[location])
-  return <header className="header"><NavLink to="/en" className="brand"><span className="brand-mark">DM.</span><span>DEVANSH<span className="brand-dot">.</span></span></NavLink><button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>{open?<X/>:<Menu/>}</button><nav className={open?'nav nav-open':'nav'}>{nav.map(([label,path])=><NavLink key={path} to={path} end={path==='/en'} className={({isActive})=>isActive?'nav-link active':'nav-link'}>{label}</NavLink>)}<button className="theme-toggle" onClick={()=>setTheme(theme==='dark'?'light':'dark')} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun size={16}/>:<Moon size={16}/>}<span>{theme==='dark'?'LIGHT':'DARK'}</span></button><a className="nav-cta" href={`mailto:${profile.email}`}>Let's talk <ArrowUpRight size={15}/></a></nav></header>
+  const languages=[['EN','English'],['FR','Français'],['DE','Deutsch'],['ES','Español'],['IT','Italiano']]
+  return <header className="header">
+    <NavLink to="/en" className="brand"><span className="brand-mark">DM.</span><span>DEVANSH<span className="brand-dot">.</span></span></NavLink>
+    <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>{open?<X/>:<Menu/>}</button>
+    <nav className={open?'nav nav-open':'nav'}>{nav.map(([label,path])=><NavLink key={path} to={path} end={path==='/en'} className={({isActive})=>isActive?'nav-link active':'nav-link'}>{label}</NavLink>)}</nav>
+    <div className="header-actions">
+      <label className="language-switch" aria-label="Choose language"><Globe2 size={16}/><select value={language} onChange={e=>setLanguage(e.target.value)} aria-label="Choose language">{languages.map(([code,name])=><option value={code} key={code}>{name}</option>)}</select><span className="language-code">{language}</span></label>
+      <button className="theme-toggle" onClick={()=>setTheme(theme==='dark'?'light':'dark')} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun size={17}/>:<Moon size={17}/>}<span>{theme==='dark'?'LIGHT':'DARK'}</span></button>
+      <a className="nav-cta" href={`mailto:${profile.email}`}>Let's talk <ArrowUpRight size={15}/></a>
+    </div>
+  </header>
 }
 function Footer(){return <footer className="footer"><div className="footer-brand"><span className="brand-mark">DM.</span><div><b>{profile.name}</b><p>Project Engineer · Cloud · DevOps</p></div></div><div className="footer-nav"><span className="eyebrow">NAVIGATE</span>{nav.slice(1).map(([n,p])=><NavLink key={p} to={p}>{n}</NavLink>)}</div><div className="footer-nav"><span className="eyebrow">CONNECT</span><a href={`mailto:${profile.email}`}>Email <ArrowUpRight size={12}/></a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={12}/></a><a href={profile.github} target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={12}/></a><a href={profile.naukri} target="_blank" rel="noreferrer">Naukri <ArrowUpRight size={12}/></a></div><div className="footer-bottom"><span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span><span>Built with React · Vite</span></div></footer>}
 function Shell({children,theme,setTheme}){return <><Header theme={theme} setTheme={setTheme}/><main id="top">{children}</main><Footer/></>}
