@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react'
+import { cloneElement, createContext, isValidElement, useContext, useEffect, useState } from 'react'
 import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { ArrowDownRight, ArrowLeft, ArrowUpRight, Github, Linkedin, Mail, Menu, X, Terminal, Cloud, Server, Code2, Activity, Workflow, Command, CheckCircle2, Copy, Layers, Database, GraduationCap, BriefcaseBusiness, Globe2, Sparkles, ExternalLink, Sun, Moon } from 'lucide-react'
 
@@ -125,23 +125,22 @@ const translations = {
   }
 }
 
-function applyTranslations(root, language, originals) {
+function LocalizedTree({ children }) {
+  const { language } = useContext(LanguageContext)
   const dictionary = translations[language] || {}
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT)
-  let node
-  while ((node = walker.nextNode())) {
-    const parent = node.parentElement
-    if (!parent || parent.closest('script,style,code,pre,select,option,[data-no-translate]')) continue
-    if (!originals.has(node)) originals.set(node, node.nodeValue)
-    const source = originals.get(node)
-    const trimmed = source.trim()
-    if (!trimmed) continue
-    const translated = dictionary[trimmed]
-    const target = translated ? source.replace(trimmed, translated) : source
-    if (node.nodeValue !== target) node.nodeValue = target
+  function localize(node) {
+    if (typeof node === 'string') {
+      const trimmed = node.trim()
+      const translated = dictionary[trimmed]
+      return translated ? node.replace(trimmed, translated) : node
+    }
+    if (Array.isArray(node)) return node.map(localize)
+    if (!isValidElement(node)) return node
+    if (['script', 'style', 'code', 'pre', 'select', 'option'].includes(node.type)) return node
+    return cloneElement(node, undefined, localize(node.props.children))
   }
+  return localize(children)
 }
-
 
 function Header({theme,setTheme}) {
   const [open,setOpen]=useState(false), {language,setLanguage}=useContext(LanguageContext), location=useLocation()
@@ -196,4 +195,4 @@ function Experience({theme,setTheme}){return <Shell theme={theme} setTheme={setT
 function Education({theme,setTheme}){return <Shell theme={theme} setTheme={setTheme}><PageIntro kicker="BACKGROUND / 04" title="Learning is a" accent="continuous process." desc="Academic details and learning milestones that shaped my technical foundation."/><section className="section container"><SectionHeading n="01" label="Education"/><div className="education-placeholder"><GraduationCap size={32}/><div><Eyebrow>ACADEMIC BACKGROUND</Eyebrow><h2>Education details to confirm</h2><p>LinkedIn lists Chandigarh Engineering College and a Computer Science and Engineering degree from 2020–2024. Please verify the exact qualification, campus name and dates before the site is published; I have not filled marks, CGPA or coursework from assumptions.</p><a className="under-link" href={profile.linkedin} target="_blank" rel="noreferrer">View LinkedIn profile <ArrowUpRight size={15}/></a></div></div><SectionHeading n="02" label="Continuous learning"/><div className="learning-list"><div><span>01</span><b>Linux & operating systems</b><small>Unix/Linux administration and shell fundamentals</small></div><div><span>02</span><b>Cloud infrastructure</b><small>AWS services and infrastructure concepts</small></div><div><span>03</span><b>DevOps & automation</b><small>Docker, Jenkins, Terraform, Kubernetes and observability</small></div></div></section><CTA/></Shell>}
 function Contact({theme,setTheme}){const[copied,setCopied]=useState(false);async function copy(){try{await navigator.clipboard.writeText(profile.email);setCopied(true);setTimeout(()=>setCopied(false),1800)}catch{window.location.href=`mailto:${profile.email}`}}return <Shell theme={theme} setTheme={setTheme}><PageIntro kicker="CONTACT / 05" title="Let's start a" accent="conversation." desc="Have an opportunity, a project idea or simply want to connect? I'd be glad to hear from you."/><section className="section container contact-layout"><div className="contact-main"><Eyebrow>GET IN TOUCH</Eyebrow><a className="email-link" href={`mailto:${profile.email}`}>{profile.email}<ArrowUpRight/></a><button className="copy-button" onClick={copy}>{copied?<CheckCircle2 size={15}/>:<Copy size={15}/>} {copied?'COPIED':'COPY EMAIL'}</button><div className="social-links"><a href={profile.github} target="_blank" rel="noreferrer"><Github/> GitHub <ArrowUpRight/></a><a href={profile.linkedin} target="_blank" rel="noreferrer"><Linkedin/> LinkedIn <ArrowUpRight/></a></div></div><aside className="contact-aside"><div><Eyebrow>LOCATION</Eyebrow><p>India · Open to remote conversations</p></div><div><Eyebrow>INTERESTS</Eyebrow><p>Software engineering, cloud infrastructure, DevOps and problem-solving.</p></div><div><Eyebrow>AVAILABILITY</Eyebrow><p>Open to meaningful conversations and relevant opportunities.</p></div></aside></section></Shell>}
 function NotFound(){return <Shell><div className="container not-found"><Eyebrow>404 / PAGE NOT FOUND</Eyebrow><h1>Lost in the <em>system.</em></h1><NavLink to="/en" className="button button-light"><ArrowLeft size={16}/> Back home</NavLink></div></Shell>}
-export default function App(){const [theme,setTheme]=useState(()=>{try{return localStorage.getItem('portfolio-theme')||'light'}catch{return 'light'}});const [language,setLanguage]=useState('EN');const originalsRef=useRef(new WeakMap());useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('portfolio-theme',theme)}catch{}},[theme]);useEffect(()=>{document.documentElement.lang=language.toLowerCase();const originals=originalsRef.current;const root=document.getElementById('root');if(!root)return;const translate=()=>applyTranslations(root,language,originals);translate();const observer=new MutationObserver(translate);observer.observe(root,{subtree:true,childList:true,characterData:true});return()=>observer.disconnect()},[language]);return <LanguageContext.Provider value={{language,setLanguage}}><Routes><Route path="/" element={<Navigate to="/en" replace/>}/><Route path="/en" element={<Home theme={theme} setTheme={setTheme}/>}/><Route path="/en/about" element={<About theme={theme} setTheme={setTheme}/>}/><Route path="/en/skills" element={<Skills theme={theme} setTheme={setTheme}/>}/><Route path="/en/projects" element={<Projects theme={theme} setTheme={setTheme}/>}/><Route path="/en/experience" element={<Experience theme={theme} setTheme={setTheme}/>}/><Route path="/en/education" element={<Education theme={theme} setTheme={setTheme}/>}/><Route path="/en/contact" element={<Contact theme={theme} setTheme={setTheme}/>}/><Route path="*" element={<NotFound/>}/></Routes></LanguageContext.Provider>}
+export default function App(){const [theme,setTheme]=useState(()=>{try{return localStorage.getItem('portfolio-theme')||'light'}catch{return 'light'}});const [language,setLanguage]=useState('EN');useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('portfolio-theme',theme)}catch{}},[theme]);useEffect(()=>{document.documentElement.lang=language.toLowerCase()},[language]);return <LanguageContext.Provider value={{language,setLanguage}}><LocalizedTree><Routes><Route path="/" element={<Navigate to="/en" replace/>}/><Route path="/en" element={<Home theme={theme} setTheme={setTheme}/>}/><Route path="/en/about" element={<About theme={theme} setTheme={setTheme}/>}/><Route path="/en/skills" element={<Skills theme={theme} setTheme={setTheme}/>}/><Route path="/en/projects" element={<Projects theme={theme} setTheme={setTheme}/>}/><Route path="/en/experience" element={<Experience theme={theme} setTheme={setTheme}/>}/><Route path="/en/education" element={<Education theme={theme} setTheme={setTheme}/>}/><Route path="/en/contact" element={<Contact theme={theme} setTheme={setTheme}/>}/><Route path="*" element={<NotFound/>}/></Routes></LocalizedTree></LanguageContext.Provider>}
