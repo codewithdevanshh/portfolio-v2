@@ -21,7 +21,7 @@ function Header({theme,setTheme}) {
   useEffect(()=>setOpen(false),[location])
   const languages=[['EN','English'],['FR','Français'],['DE','Deutsch'],['ES','Español'],['IT','Italiano']]
   return <header className="header">
-    <NavLink to="/en" className="brand"><span className="brand-mark">DM.</span><span>DEVANSH<span className="brand-dot">.</span></span></NavLink>
+    <NavLink to="/en" className="brand" aria-label="Devansh Mishra home"><span className="brand-mark">DM</span></NavLink>
     <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>{open?<X/>:<Menu/>}</button>
     <nav className={open?'nav nav-open':'nav'}>{nav.map(([label,path])=><NavLink key={path} to={path} end={path==='/en'} className={({isActive})=>isActive?'nav-link active':'nav-link'}>{label}</NavLink>)}</nav>
     <div className="header-actions">
