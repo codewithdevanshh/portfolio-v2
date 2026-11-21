@@ -1,6 +1,14 @@
-# Portfolio v2
+# Devansh Mishra — Portfolio
 
-Responsive multi-page React portfolio built with Vite and React Router.
+Responsive multi-page personal portfolio built with React, Vite and React Router.
+
+## Profile
+- Role: Project Engineer at Wipro
+- Focus: enterprise application operations, database workflows, monitoring, cloud exposure and DevOps learning
+- Email: codewithdevanshh@gmail.com
+- GitHub: https://github.com/codewithdevanshh
+- LinkedIn: https://www.linkedin.com/in/devanshhmishra/
+- Naukri: https://www.naukri.com/mnjuser/profile?id&altresid
 
 ## Run locally
 `npm install` then `npm run dev`.
@@ -8,5 +16,5 @@ Responsive multi-page React portfolio built with Vite and React Router.
 ## Production build
 `npm run build`.
 
-## Before publishing
-The public portfolio name is set to Devansh Mishra. The verified public name, GitHub, LinkedIn and email are already configured in `src/App.jsx`. Review the Naukri destination before publishing; replace any project information only with verified evidence. Replace project placeholders with real work and repositories. Do not publish placeholder contact details.
+## Content notes
+Project cards are based on public repositories linked from the GitHub profile. Review descriptions and live-demo destinations before publishing. Education and certifications should only be expanded from verified details.
