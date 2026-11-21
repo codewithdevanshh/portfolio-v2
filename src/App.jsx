@@ -1,6 +1,6 @@
-import { cloneElement, createContext, isValidElement, useContext, useEffect, useState } from 'react'
+import { cloneElement, createContext, isValidElement, useContext, useEffect, useRef, useState } from 'react'
 import { NavLink, Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import { ArrowDownRight, ArrowLeft, ArrowUpRight, Github, Linkedin, Mail, Menu, X, Terminal, Cloud, Server, Code2, Activity, Workflow, Command, CheckCircle2, Copy, Layers, Database, GraduationCap, BriefcaseBusiness, Globe2, Sparkles, ExternalLink, Sun, Moon } from 'lucide-react'
+import { ArrowDownRight, ArrowLeft, ArrowUpRight, Github, Linkedin, Mail, Menu, X, Terminal, Cloud, Server, Code2, Activity, Workflow, Command, CheckCircle2, Copy, Layers, Database, GraduationCap, BriefcaseBusiness, Globe2, Sparkles, ExternalLink, Sun, Moon, ChevronDown, Check } from 'lucide-react'
 
 const profile = {
   name: 'Devansh Mishra',
@@ -178,15 +178,30 @@ function LocalizedTree({ children }) {
 }
 
 function Header({theme,setTheme}) {
-  const [open,setOpen]=useState(false), {language,setLanguage}=useContext(LanguageContext), location=useLocation()
+  const [open,setOpen]=useState(false), [languageOpen,setLanguageOpen]=useState(false), {language,setLanguage}=useContext(LanguageContext), location=useLocation(), languageRef=useRef(null)
   useEffect(()=>setOpen(false),[location])
-  const languages=[['EN','English'],['FR','Français'],['DE','Deutsch'],['ES','Español']]
+  useEffect(()=>{
+    const closeLanguageMenu=(event)=>{if(languageRef.current&&!languageRef.current.contains(event.target))setLanguageOpen(false)}
+    const closeOnEscape=(event)=>{if(event.key==='Escape')setLanguageOpen(false)}
+    document.addEventListener('pointerdown',closeLanguageMenu)
+    document.addEventListener('keydown',closeOnEscape)
+    return ()=>{document.removeEventListener('pointerdown',closeLanguageMenu);document.removeEventListener('keydown',closeOnEscape)}
+  },[])
+  const languages=[['EN','English','English'],['FR','Français','French'],['DE','Deutsch','German'],['ES','Español','Spanish']]
+  const selectedLanguage=languages.find(([code])=>code===language)||languages[0]
   return <LocalizedTree><header className="header">
     <NavLink to="/en" className="brand" aria-label="Devansh Mishra home"><span className="brand-mark">DM</span></NavLink>
     <button className="menu-toggle" onClick={()=>setOpen(!open)} aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open}>{open?<X/>:<Menu/>}</button>
     <nav className={open?'nav nav-open':'nav'}>{nav.map(([label,path])=><NavLink key={path} to={path} end={path==='/en'} className={({isActive})=>isActive?'nav-link active':'nav-link'}>{label}</NavLink>)}</nav>
     <div className="header-actions">
-      <label className="language-switch" aria-label="Choose language"><Globe2 size={16}/><select value={language} onChange={e=>setLanguage(e.target.value)} aria-label="Choose language">{languages.map(([code,name])=><option value={code} key={code}>{name}</option>)}</select><span className="language-code">{language}</span></label>
+      <div className="language-picker" ref={languageRef}>
+        <button type="button" className="language-trigger" onClick={()=>setLanguageOpen(value=>!value)} aria-label="Choose language" aria-haspopup="menu" aria-expanded={languageOpen}>
+          <Globe2 size={16}/><span className="language-trigger-code">{selectedLanguage[0]}</span><span className="language-trigger-name">{selectedLanguage[1]}</span><ChevronDown size={14} className={languageOpen?'language-chevron is-open':'language-chevron'}/>
+        </button>
+        {languageOpen&&<div className="language-menu" role="menu" aria-label="Select language">{languages.map(([code,name,englishName])=><button type="button" role="menuitemradio" aria-checked={language===code} className={language===code?'language-option selected':'language-option'} key={code} onClick={()=>{setLanguage(code);setLanguageOpen(false)}}>
+          <span className="language-option-code">{code}</span><span className="language-option-copy"><strong>{name}</strong><small>{englishName}</small></span>{language===code&&<Check size={16} className="language-option-check"/>}
+        </button>)}</div>}
+      </div>
       <button className="theme-toggle" onClick={()=>setTheme(theme==='dark'?'light':'dark')} aria-label={`Switch to ${theme==='dark'?'light':'dark'} mode`} title={`Switch to ${theme==='dark'?'light':'dark'} mode`}>{theme==='dark'?<Sun size={17}/>:<Moon size={17}/>}<span>{theme==='dark'?'LIGHT':'DARK'}</span></button>
       <a className="nav-cta" href={`mailto:${profile.email}`}>Let's talk <ArrowUpRight size={15}/></a>
     </div>
