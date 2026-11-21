@@ -222,3 +222,110 @@ a{color:inherit}button{color:inherit}
   .footer-nav a{font-size:10px}
   .footer-bottom{font-size:8px}
 }
+
+
+/* Visual direction refinement: neutral editorial base + focused blue hero glow */
+:root{
+  --bg:#f3f2ee;
+  --surface:#fbfaf7;
+  --surface-2:#e9e8e2;
+  --text:#202321;
+  --muted:#666d68;
+  --line:#d6d7d0;
+  --accent:#345fca;
+  --accent-2:#6f8fe0;
+  --mint:#477c70;
+}
+:root[data-theme="dark"]{
+  --bg:#111412;
+  --surface:#191e1b;
+  --surface-2:#202622;
+  --text:#f0f1eb;
+  --muted:#a4aaa2;
+  --line:#303a33;
+  --accent:#8ba8ff;
+  --accent-2:#b2c2ff;
+  --mint:#7cc5a9;
+}
+body{background:var(--bg)!important;color:var(--text)!important}
+.header{background:color-mix(in srgb,var(--bg) 92%,transparent)!important}
+.hero{
+  position:relative;
+  isolation:isolate;
+  overflow:visible;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  width:min(58vw,720px);
+  height:min(54vw,570px);
+  right:-max(24px,calc((100vw - 1160px)/2 - 70px));
+  top:34px;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 68% 42%,rgba(58,103,218,.24) 0%,rgba(58,103,218,.13) 28%,rgba(58,103,218,.045) 52%,transparent 72%),
+    radial-gradient(ellipse at 80% 70%,rgba(91,128,218,.11),transparent 60%);
+  filter:blur(10px);
+}
+:root[data-theme="dark"] .hero::after{
+  background:
+    radial-gradient(ellipse at 68% 42%,rgba(72,111,230,.30) 0%,rgba(72,111,230,.16) 30%,rgba(72,111,230,.05) 55%,transparent 74%),
+    radial-gradient(ellipse at 80% 70%,rgba(91,128,218,.13),transparent 60%);
+}
+.hero-copy h1.hero-title{color:var(--text)}
+.hero-copy h1.hero-title em{background:linear-gradient(105deg,var(--text) 0%,var(--accent) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-desc{color:var(--muted)}
+.availability{color:var(--text)}
+.role-line{color:var(--text)}
+.hero-code{
+  border:1px solid color-mix(in srgb,var(--text) 12%,var(--line));
+  background:color-mix(in srgb,var(--surface) 88%,transparent);
+  box-shadow:0 28px 75px rgba(27,39,65,.12);
+  backdrop-filter:blur(12px);
+}
+:root[data-theme="dark"] .hero-code{box-shadow:0 28px 75px rgba(0,0,0,.28)}
+.code-top,.code-bottom{border-color:var(--line);color:var(--muted)}
+.hero-code pre{color:var(--text)}
+.code-purple{color:#8a5bc2}.code-blue{color:#3869bd}.code-green{color:#477c70}
+:root[data-theme="dark"] .code-purple{color:#c3a0f1}
+:root[data-theme="dark"] .code-blue{color:#91baff}
+:root[data-theme="dark"] .code-green{color:#8bd2b7}
+.button-light{background:var(--text);color:var(--bg)}
+.button-light:hover{background:var(--accent);color:#fff}
+.button-quiet{border-color:var(--line);color:var(--text)}
+.button-quiet:hover,.button-outline:hover{border-color:var(--accent);color:var(--accent)}
+.stats-band{background:var(--surface)!important}
+.section-muted,.experience-preview{background:var(--surface-2)!important}
+.contact-banner{background:#222a26;color:#f5f4ed}
+.contact-banner .eyebrow{color:#aeb8ae}
+.contact-banner h2 em{background:linear-gradient(100deg,#b8caff,#7194ee);-webkit-background-clip:text;background-clip:text;color:transparent}
+.button-dark{background:#f2f0e8;color:#202321}
+.button-dark:hover{background:#dbe3fb;color:#202321}
+.project-art{
+  background:linear-gradient(145deg,#e5e7e1,#f8f8f4 55%,#e6e9f2)!important;
+  color:#3e5f9e;
+}
+:root[data-theme="dark"] .project-art{
+  background:linear-gradient(145deg,#202822,#171d1a 55%,#20283a)!important;
+  color:#9bb3ed;
+}
+.project-art small,.project-art>span{color:var(--muted)}
+.art-orbit{border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
+.capability-card,.values-grid>div,.skill-panel,.experience-entry,.experience-note,.education-placeholder,.project-card{
+  box-shadow:0 8px 24px rgba(28,35,30,.035);
+}
+:root[data-theme="dark"] .capability-card,
+:root[data-theme="dark"] .values-grid>div,
+:root[data-theme="dark"] .skill-panel,
+:root[data-theme="dark"] .experience-entry,
+:root[data-theme="dark"] .experience-note,
+:root[data-theme="dark"] .education-placeholder,
+:root[data-theme="dark"] .project-card{box-shadow:none}
+.footer{background:var(--bg)}
+@media(max-width:900px){
+  .hero::after{width:75vw;height:62vw;right:-20vw;top:10px;opacity:.8}
+}
+@media(max-width:600px){
+  .hero::after{width:100vw;height:90vw;right:-38vw;top:0;opacity:.65}
+}
