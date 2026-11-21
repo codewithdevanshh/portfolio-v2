@@ -319,3 +319,39 @@ body{background:var(--bg)!important;color:var(--text)!important;transition:backg
  .language-switch select{max-width:42px}
  .header-actions .theme-toggle{min-width:54px;padding-inline:5px}
 }
+
+
+/* Brand mark: simple DM monogram, no surrounding square or rectangle */
+.header .brand{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  width:64px;
+  min-width:64px;
+  height:54px;
+  gap:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+.header .brand-mark{
+  display:inline-block;
+  width:auto;
+  height:auto;
+  min-width:0;
+  padding:0;
+  border:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  box-shadow:none!important;
+  color:var(--text)!important;
+  font:800 25px/1 var(--display);
+  letter-spacing:-.09em;
+}
+.header .brand::before,.header .brand::after,
+.header .brand-mark::before,.header .brand-mark::after{content:none!important;display:none!important}
+@media(max-width:780px){
+  .header .brand{width:58px;min-width:58px;height:48px}
+  .header .brand-mark{font-size:24px}
+}
