@@ -377,6 +377,71 @@ Object.assign(translations.ES, {
   "Live demo": "Demo en vivo"
 });
 
+
+Object.assign(translations.FR, {
+  "Tools, systems &": "Outils, systèmes et",
+  "technical foundations.": "fondements techniques.",
+  "A transparent overview of technologies used in my professional environment, personal projects and current hands-on learning. Skill depth varies by tool and is reflected in the descriptions below.": "Un aperçu transparent des technologies utilisées dans mon environnement professionnel, mes projets personnels et mon apprentissage pratique actuel. Le niveau de maîtrise varie selon les outils et est précisé ci-dessous.",
+  "Skill categories": "Catégories de compétences",
+  "Programming & Data": "Programmation et données",
+  "Python and SQL fundamentals, application data operations and backend development through project work.": "Bases de Python et SQL, opérations sur les données applicatives et développement backend à travers des projets.",
+  "Cloud & Infrastructure": "Cloud et infrastructure",
+  "Exposure to AWS services in an enterprise environment, alongside cloud fundamentals being developed through practice.": "Expérience des services AWS en environnement d’entreprise et approfondissement pratique des fondamentaux du cloud.",
+  "Monitoring & Observability": "Supervision et observabilité",
+  "Enterprise application log analysis, performance monitoring and issue investigation.": "Analyse des journaux applicatifs en entreprise, surveillance des performances et investigation des incidents.",
+  "CI/CD & Automation": "CI/CD et automatisation",
+  "Azure Repos and pipeline workflow exposure; Docker, Jenkins, Terraform and Kubernetes are current hands-on learning areas.": "Expérience des workflows Azure Repos et des pipelines ; Docker, Jenkins, Terraform et Kubernetes font actuellement l’objet d’un apprentissage pratique.",
+  "Linux & Scripting": "Linux et scripting",
+  "Linux/Unix fundamentals and server access workflows, with Python and Bash scripting under active development.": "Bases Linux/Unix et workflows d’accès aux serveurs, avec un apprentissage continu du scripting Python et Bash.",
+  "Tools and engineering practices used to build, test and deliver applications.": "Outils et pratiques d’ingénierie utilisés pour développer, tester et livrer des applications.",
+  "ALWAYS IN PROGRESS": "EN APPRENTISSAGE CONTINU",
+  "Learning through": "Apprendre en",
+  "designing and building.": "concevant et en construisant.",
+  "Current learning path: Linux administration · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana": "Parcours d’apprentissage actuel : administration Linux · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana"
+});
+Object.assign(translations.DE, {
+  "Tools, systems &": "Tools, Systeme und",
+  "technical foundations.": "technische Grundlagen.",
+  "A transparent overview of technologies used in my professional environment, personal projects and current hands-on learning. Skill depth varies by tool and is reflected in the descriptions below.": "Ein transparenter Überblick über Technologien aus meinem beruflichen Umfeld, persönlichen Projekten und aktuellen praktischen Lernfeldern. Die Kenntnisse unterscheiden sich je nach Tool; die Beschreibungen geben den jeweiligen Stand wieder.",
+  "Skill categories": "Kompetenzbereiche",
+  "Programming & Data": "Programmierung und Daten",
+  "Python and SQL fundamentals, application data operations and backend development through project work.": "Python- und SQL-Grundlagen, Datenoperationen in Anwendungen und Backend-Entwicklung durch Projektarbeit.",
+  "Cloud & Infrastructure": "Cloud und Infrastruktur",
+  "Exposure to AWS services in an enterprise environment, alongside cloud fundamentals being developed through practice.": "Einblicke in AWS-Services in einem Unternehmensumfeld sowie praktische Vertiefung der Cloud-Grundlagen.",
+  "Monitoring & Observability": "Monitoring und Observability",
+  "Enterprise application log analysis, performance monitoring and issue investigation.": "Analyse von Anwendungslogs, Performance-Monitoring und Untersuchung von Störungen im Unternehmensumfeld.",
+  "CI/CD & Automation": "CI/CD und Automatisierung",
+  "Azure Repos and pipeline workflow exposure; Docker, Jenkins, Terraform and Kubernetes are current hands-on learning areas.": "Erfahrung mit Azure-Repos- und Pipeline-Workflows; Docker, Jenkins, Terraform und Kubernetes sind aktuelle praktische Lernbereiche.",
+  "Linux & Scripting": "Linux und Skripting",
+  "Linux/Unix fundamentals and server access workflows, with Python and Bash scripting under active development.": "Linux-/Unix-Grundlagen und Serverzugriffs-Workflows; Python- und Bash-Skripting werden derzeit weiterentwickelt.",
+  "Tools and engineering practices used to build, test and deliver applications.": "Tools und Engineering-Praktiken zum Entwickeln, Testen und Bereitstellen von Anwendungen.",
+  "ALWAYS IN PROGRESS": "STÄNDIGE WEITERENTWICKLUNG",
+  "Learning through": "Lernen durch",
+  "designing and building.": "Entwerfen und Umsetzen.",
+  "Current learning path: Linux administration · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana": "Aktueller Lernpfad: Linux-Administration · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana"
+});
+Object.assign(translations.ES, {
+  "Tools, systems &": "Herramientas, sistemas y",
+  "technical foundations.": "fundamentos técnicos.",
+  "A transparent overview of technologies used in my professional environment, personal projects and current hands-on learning. Skill depth varies by tool and is reflected in the descriptions below.": "Una visión transparente de las tecnologías utilizadas en mi entorno profesional, proyectos personales y aprendizaje práctico actual. El nivel de dominio varía según la herramienta y se refleja en las descripciones.",
+  "Skill categories": "Categorías de habilidades",
+  "Programming & Data": "Programación y datos",
+  "Python and SQL fundamentals, application data operations and backend development through project work.": "Fundamentos de Python y SQL, operaciones de datos de aplicaciones y desarrollo backend mediante proyectos.",
+  "Cloud & Infrastructure": "Cloud e infraestructura",
+  "Exposure to AWS services in an enterprise environment, alongside cloud fundamentals being developed through practice.": "Experiencia con servicios AWS en un entorno empresarial y desarrollo práctico de fundamentos cloud.",
+  "Monitoring & Observability": "Monitorización y observabilidad",
+  "Enterprise application log analysis, performance monitoring and issue investigation.": "Análisis de registros de aplicaciones empresariales, monitorización del rendimiento e investigación de incidencias.",
+  "CI/CD & Automation": "CI/CD y automatización",
+  "Azure Repos and pipeline workflow exposure; Docker, Jenkins, Terraform and Kubernetes are current hands-on learning areas.": "Experiencia con Azure Repos y flujos de pipelines; Docker, Jenkins, Terraform y Kubernetes son áreas de aprendizaje práctico.",
+  "Linux & Scripting": "Linux y scripting",
+  "Linux/Unix fundamentals and server access workflows, with Python and Bash scripting under active development.": "Fundamentos de Linux/Unix y acceso a servidores, con desarrollo continuo de scripting en Python y Bash.",
+  "Tools and engineering practices used to build, test and deliver applications.": "Herramientas y prácticas de ingeniería para crear, probar y entregar aplicaciones.",
+  "ALWAYS IN PROGRESS": "EN CONSTANTE APRENDIZAJE",
+  "Learning through": "Aprender mediante",
+  "designing and building.": "el diseño y la creación.",
+  "Current learning path: Linux administration · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana": "Ruta de aprendizaje actual: administración de Linux · Python · Bash · AWS · Git · Docker · Jenkins · CI/CD · Terraform · Kubernetes · Prometheus · Grafana"
+});
+
 function LocalizedTree({ children }) {
   const { language } = useContext(LanguageContext)
   const dictionary = translations[language] || {}
