@@ -2103,3 +2103,87 @@ pre,code{max-width:100%}
 @media(max-width:380px){
   .hero-desc{font-size:12px!important;line-height:1.8!important}
 }
+
+
+/* Site-wide paragraph alignment system — match the Home introduction */
+:where(
+  .page-intro>p,
+  .home-about p,
+  .about-text p,
+  .capability-card p,
+  .project-card p,
+  .skill-panel>p,
+  .experience-content p,
+  .experience-content li,
+  .experience-summary,
+  .learning-row>p,
+  .values-grid p,
+  .education-placeholder p,
+  .contact-aside p
+){
+  text-align:justify!important;
+  text-align-last:left!important;
+  text-justify:inter-word;
+  hyphens:auto;
+  overflow-wrap:normal;
+  word-break:normal;
+  text-wrap:pretty;
+  line-height:1.85;
+}
+:where(
+  .page-intro>p,
+  .home-about p,
+  .about-text p,
+  .experience-content p,
+  .experience-content li,
+  .experience-summary,
+  .learning-row>p,
+  .education-placeholder p,
+  .contact-aside p
+){
+  max-width:68ch;
+}
+@media(min-width:1101px){
+  .page-intro>p,.home-about p,.about-text p,.learning-row>p,.contact-aside p{
+    line-height:1.9;
+  }
+}
+@media(max-width:767px){
+  :where(
+    .page-intro>p,
+    .home-about p,
+    .about-text p,
+    .capability-card p,
+    .project-card p,
+    .skill-panel>p,
+    .experience-content p,
+    .experience-content li,
+    .experience-summary,
+    .learning-row>p,
+    .values-grid p,
+    .education-placeholder p,
+    .contact-aside p
+  ){
+    text-align:justify!important;
+    text-align-last:left!important;
+    line-height:1.8!important;
+    hyphens:auto;
+  }
+}
+@media(max-width:380px){
+  :where(
+    .page-intro>p,
+    .home-about p,
+    .about-text p,
+    .capability-card p,
+    .project-card p,
+    .skill-panel>p,
+    .experience-content p,
+    .experience-content li,
+    .experience-summary,
+    .learning-row>p,
+    .values-grid p,
+    .education-placeholder p,
+    .contact-aside p
+  ){line-height:1.75!important}
+}
