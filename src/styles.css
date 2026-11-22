@@ -44,6 +44,7 @@ a{color:inherit}button{color:inherit}
 .project-card{min-width:0;display:flex;flex-direction:column}.project-card-body{display:flex;flex:1;flex-direction:column}
 .project-card p{min-height:0}.project-links{display:flex;flex-wrap:wrap;gap:16px;margin-top:auto;padding-top:18px}
 .project-links a{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:var(--accent)}
+.project-private-source{display:inline-flex;align-items:center;font-size:10px;color:var(--muted);letter-spacing:.01em}
 .project-art{background:radial-gradient(ellipse at 50% 45%,color-mix(in srgb,var(--accent) 20%,var(--surface-2)),var(--surface) 72%)!important;color:var(--accent)}
 .project-art small,.project-art>span{color:var(--muted)}.art-orbit{border-color:color-mix(in srgb,var(--accent) 40%,transparent)}
 .tag-list span,.skill-chips span{border-color:var(--line);color:var(--muted)}
