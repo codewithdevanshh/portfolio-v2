@@ -220,6 +220,13 @@ Object.assign(translations.DE, {
   'Computer Science & Engineering':'Informatik und Ingenieurwesen',
   'Academic background in computer science and engineering. Marks, CGPA and additional academic details are intentionally omitted until they can be verified from the profile.':'Akademischer Hintergrund in Informatik und Ingenieurwesen. Noten, CGPA und weitere Angaben bleiben bis zur Überprüfung des Profils bewusst offen.'
 });
+Object.assign(translations.FR, {
+  "PRIVATE SOURCE": "CODE PRIVÉ"
+});
+Object.assign(translations.DE, {
+  "PRIVATE SOURCE": "PRIVATER QUELLCODE"
+});
+
 Object.assign(translations.ES, {
   'A practical overview of tools across professional exposure at Wipro, personal project work and my current learning. Not every listed technology represents production-level experience.':'Una visión práctica de herramientas utilizadas en mi trabajo en Wipro, proyectos personales y aprendizaje actual. No todas las tecnologías representan experiencia en producción.',
   'Java and SQL across application work, database operations and personal backend projects.':'Java y SQL en desarrollo de aplicaciones, operaciones de bases de datos y proyectos backend personales.',
