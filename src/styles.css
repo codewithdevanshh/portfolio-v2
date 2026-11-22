@@ -2589,3 +2589,23 @@ body { background: var(--bg); color: var(--text); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+
+/* Mobile intro paragraph: align the text block cleanly on both edges */
+@media (max-width: 767px) {
+  .home-hero .hero-copy,
+  .home-hero .hero-desc {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+  }
+  .home-hero .hero-desc {
+    text-align: justify !important;
+    text-align-last: left !important;
+    text-justify: inter-word;
+    hyphens: none !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    line-height: 1.85 !important;
+  }
+}
