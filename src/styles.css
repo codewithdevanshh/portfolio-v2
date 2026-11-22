@@ -3209,24 +3209,17 @@ body {
 }
 
 
-/* Extend the hero's ambient blue wash across the full viewport,
-   not just the centered content container. */
+/* Correct full-viewport hero glow: center the pseudo-element on the viewport
+   and allow it to escape the centered hero container. Page-level overflow
+   clipping remains responsible for preventing horizontal scroll. */
+.home-hero {
+  overflow: visible !important;
+}
 .home-hero::after {
+  left: 50% !important;
+  right: auto !important;
   width: 100vw !important;
   max-width: 100vw !important;
-  right: calc((100vw - 100%) / -2) !important;
-  background: radial-gradient(
-    ellipse at 58% 43%,
-    rgba(63, 111, 220, .19) 0%,
-    rgba(63, 111, 220, .075) 43%,
-    rgba(63, 111, 220, .025) 70%,
-    transparent 100%
-  ) !important;
-}
-@media (max-width: 1024px) {
-  .home-hero::after {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    right: calc((100vw - 100%) / -2) !important;
-  }
+  transform: translateX(-50%) !important;
+  pointer-events: none !important;
 }
