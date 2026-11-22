@@ -1942,3 +1942,67 @@ pre,code{max-width:100%}
     margin-top:8px!important;
   }
 }
+
+
+/* Strong desktop footer composition: identity left, both link groups together at far right */
+@media(min-width:1101px){
+  .footer{
+    width:min(1430px,calc(100% - 64px))!important;
+    max-width:1430px!important;
+    margin-inline:auto!important;
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) max-content max-content!important;
+    column-gap:clamp(36px,4vw,64px)!important;
+    row-gap:24px!important;
+    align-items:center!important;
+    justify-items:stretch!important;
+    text-align:left!important;
+  }
+  .footer-brand{
+    grid-column:1!important;
+    justify-self:start!important;
+    align-self:center!important;
+    display:flex!important;
+    flex-direction:row!important;
+    align-items:center!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    width:auto!important;
+    margin:0!important;
+  }
+  .footer-brand>div{text-align:left!important}
+  .footer-brand b{
+    display:block!important;
+    font-size:19px!important;
+    font-weight:800!important;
+    line-height:1.35!important;
+    letter-spacing:-.03em!important;
+  }
+  .footer-brand p{
+    margin:7px 0 0!important;
+    font-size:14px!important;
+    font-weight:600!important;
+    line-height:1.5!important;
+  }
+  .footer-nav{
+    grid-column:auto!important;
+    justify-self:end!important;
+    align-self:start!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:flex-start!important;
+    text-align:left!important;
+    width:max-content!important;
+    min-width:0!important;
+    gap:13px!important;
+  }
+  .footer-nav .eyebrow{font-size:12px!important;font-weight:800!important}
+  .footer-nav a{font-size:14px!important;font-weight:600!important;white-space:nowrap}
+  .footer-bottom{
+    grid-column:1/-1!important;
+    width:100%!important;
+    justify-content:flex-start!important;
+    text-align:left!important;
+    margin-top:12px!important;
+  }
+}
