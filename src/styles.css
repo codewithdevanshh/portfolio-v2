@@ -3186,3 +3186,24 @@ body { background: var(--bg); color: var(--text); }
 
 /* Recruiter contact action: inherit the approved link treatment and keep focus visible. */
 .resume-request-link{display:inline-flex;align-items:center;gap:9px;margin-top:24px}
+
+
+/* Full-viewport canvas fix: prevent legacy flex alignment and body padding
+   from shrink-wrapping the application on narrow/mobile viewports. */
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+}
+body {
+  display: block;
+  padding: 0;
+  align-items: stretch;
+}
+#root {
+  display: flow-root;
+}
