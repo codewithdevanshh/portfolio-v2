@@ -387,10 +387,72 @@ function Experience({theme,setTheme}){return <Shell theme={theme} setTheme={setT
 function Education({theme,setTheme}){return <Shell theme={theme} setTheme={setTheme}><PageIntro kicker="BACKGROUND / 04" title="Learning is a" accent="continuous process." desc="Academic details and learning milestones that shaped my technical foundation."/><section className="section container"><SectionHeading n="01" label="Education"/><article className="education-placeholder"><GraduationCap size={32}/><div><Eyebrow>CHANDIGARH ENGINEERING COLLEGE</Eyebrow><h2>Computer Science & Engineering</h2><p className="education-dates">2020 — 2024</p><p>Academic background in computer science and engineering. Marks, CGPA and additional academic details are intentionally omitted until they can be verified from the profile.</p><a className="under-link" href={profile.linkedin} target="_blank" rel="noopener noreferrer">View LinkedIn profile <ArrowUpRight size={15}/></a></div></article><SectionHeading n="02" label="Continuous learning"/><div className="learning-list"><div><span>01</span><b>Linux & operating systems</b><small>Unix/Linux administration and shell fundamentals</small></div><div><span>02</span><b>Cloud infrastructure</b><small>AWS services and infrastructure concepts</small></div><div><span>03</span><b>DevOps & automation</b><small>Docker, Jenkins, Terraform, Kubernetes and observability</small></div></div></section><CTA/></Shell>}
 function Contact({theme,setTheme}){const[copied,setCopied]=useState(false);async function copy(){try{await navigator.clipboard.writeText(profile.email);setCopied(true);setTimeout(()=>setCopied(false),1800)}catch{window.location.href=`mailto:${profile.email}`}}return <Shell theme={theme} setTheme={setTheme}><PageIntro kicker="CONTACT / 05" title="Let’s talk about" accent="engineering opportunities." desc="Interested in DevOps, cloud operations, platform engineering or infrastructure automation? I’d be glad to connect and discuss relevant opportunities."/><section className="section container contact-layout"><div className="contact-main"><Eyebrow>GET IN TOUCH</Eyebrow><a className="email-link" href={`mailto:${profile.email}`}>{profile.email}<ArrowUpRight/></a><button className="copy-button" onClick={copy}>{copied?<CheckCircle2 size={15}/>:<Copy size={15}/>} {copied?'COPIED':'COPY EMAIL'}</button><div className="social-links"><a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="Open GitHub profile in a new tab"><Github/> GitHub <ArrowUpRight/></a><a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn profile in a new tab"><Linkedin/> LinkedIn <ArrowUpRight/></a></div><a className="under-link resume-request-link" href={`mailto:${profile.email}?subject=${encodeURIComponent('Resume request')}&body=${encodeURIComponent('Hello, I would like to request your latest resume. Thank you.')}`}>Request a copy of my resume <Mail size={15}/></a></div><aside className="contact-aside"><div><Eyebrow>LOCATION</Eyebrow><p>India · Open to remote conversations</p></div><div><Eyebrow>INTERESTS</Eyebrow><p>DevOps engineering, cloud infrastructure, Linux systems, CI/CD, monitoring and troubleshooting.</p></div><div><Eyebrow>AVAILABILITY</Eyebrow><p>Open to meaningful conversations and relevant opportunities.</p></div></aside></section></Shell>}
 function NotFound({theme,setTheme}){return <Shell theme={theme} setTheme={setTheme}><div className="container not-found"><Eyebrow>404 / PAGE NOT FOUND</Eyebrow><h1>Lost in the <em>system.</em></h1><NavLink to="/en" className="button button-light"><ArrowLeft size={16}/> Back home</NavLink></div></Shell>}
+const routeSeo = {
+  '/en': {
+    title: 'Devansh Mishra | Project Engineer · Cloud & DevOps',
+    description: 'Devansh Mishra is a Project Engineer at Wipro building experience across enterprise application operations, monitoring, AWS environments, Linux workflows and CI/CD, with a focus on cloud and DevOps engineering.',
+  },
+  '/en/about': {
+    title: 'About | Devansh Mishra · Cloud & DevOps',
+    description: 'Learn about Devansh Mishra, a Project Engineer at Wipro focused on application operations, cloud infrastructure, Linux, monitoring and DevOps engineering.',
+  },
+  '/en/skills': {
+    title: 'Technical Skills | Devansh Mishra · Cloud & DevOps',
+    description: 'Explore professional technology exposure, personal project skills and current learning areas across AWS, Linux, Python, SQL, monitoring and CI/CD.',
+  },
+  '/en/projects': {
+    title: 'Projects | Devansh Mishra · Software & Engineering',
+    description: 'Explore software projects by Devansh Mishra, including a Next.js e-commerce experience, MERN notes app, image gallery and web utilities.',
+  },
+  '/en/experience': {
+    title: 'Experience | Devansh Mishra · Wipro Project Engineer',
+    description: 'Professional experience supporting an enterprise technology engagement at Wipro, including SQL operations, Splunk, AppDynamics, AWS environment activities and CI/CD workflows.',
+  },
+  '/en/education': {
+    title: 'Education | Devansh Mishra · Computer Science',
+    description: 'Academic background in Computer Science and Engineering at Chandigarh Engineering College.',
+  },
+  '/en/contact': {
+    title: 'Contact | Devansh Mishra · Cloud & DevOps Opportunities',
+    description: 'Contact Devansh Mishra about relevant opportunities in DevOps engineering, cloud operations, platform engineering and infrastructure automation.',
+  },
+}
+function RouteMetadata(){
+  const {pathname}=useLocation()
+  useEffect(()=>{
+    const page=routeSeo[pathname] || {
+      title: 'Page not found | Devansh Mishra',
+      description: 'The requested page could not be found.',
+    }
+    const canonical=`https://devansh-portfolio-wine.vercel.app${routeSeo[pathname]?pathname:'/en'}`
+    document.title=page.title
+    const setMeta=(selector,attribute,value)=>{
+      let element=document.querySelector(selector)
+      if(!element){
+        element=document.createElement('meta')
+        const [key,val]=selector.match(/\[(name|property)="([^"]+)"\]/).slice(1)
+        element.setAttribute(key,val)
+        document.head.appendChild(element)
+      }
+      element.setAttribute(attribute,value)
+    }
+    setMeta('meta[name="description"]','content',page.description)
+    setMeta('meta[name="robots"]','content',routeSeo[pathname]?'index, follow, max-image-preview:large':'noindex, follow')
+    setMeta('meta[property="og:title"]','content',page.title)
+    setMeta('meta[property="og:description"]','content',page.description)
+    setMeta('meta[property="og:url"]','content',canonical)
+    setMeta('meta[name="twitter:title"]','content',page.title)
+    setMeta('meta[name="twitter:description"]','content',page.description)
+    let canonicalLink=document.querySelector('link[rel="canonical"]')
+    if(!canonicalLink){canonicalLink=document.createElement('link');canonicalLink.rel='canonical';document.head.appendChild(canonicalLink)}
+    canonicalLink.href=canonical
+  },[pathname])
+  return null
+}
 function ScrollToTop(){
   const {pathname}=useLocation()
   useEffect(()=>{window.scrollTo(0,0)},[pathname])
   return null
 }
 
-export default function App(){const [theme,setTheme]=useState(()=>{try{const saved=localStorage.getItem('portfolio-theme');return saved==='dark'?'dark':'light'}catch{return 'light'}});const [language,setLanguage]=useState(()=>{try{const saved=localStorage.getItem('portfolio-language');return ['EN','FR','DE','ES'].includes(saved)?saved:'EN'}catch{return 'EN'}});useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('portfolio-theme',theme)}catch{}},[theme]);useEffect(()=>{document.documentElement.lang=language.toLowerCase();try{localStorage.setItem('portfolio-language',language)}catch{}},[language]);return <LanguageContext.Provider value={{language,setLanguage}}><ScrollToTop/><Routes><Route path="/" element={<Navigate to="/en" replace/>}/><Route path="/en" element={<Home theme={theme} setTheme={setTheme}/>}/><Route path="/en/about" element={<About theme={theme} setTheme={setTheme}/>}/><Route path="/en/skills" element={<Skills theme={theme} setTheme={setTheme}/>}/><Route path="/en/projects" element={<Projects theme={theme} setTheme={setTheme}/>}/><Route path="/en/experience" element={<Experience theme={theme} setTheme={setTheme}/>}/><Route path="/en/education" element={<Education theme={theme} setTheme={setTheme}/>}/><Route path="/en/contact" element={<Contact theme={theme} setTheme={setTheme}/>}/><Route path="*" element={<NotFound theme={theme} setTheme={setTheme}/>}/></Routes></LanguageContext.Provider>}
+export default function App(){const [theme,setTheme]=useState(()=>{try{const saved=localStorage.getItem('portfolio-theme');return saved==='dark'?'dark':'light'}catch{return 'light'}});const [language,setLanguage]=useState(()=>{try{const saved=localStorage.getItem('portfolio-language');return ['EN','FR','DE','ES'].includes(saved)?saved:'EN'}catch{return 'EN'}});useEffect(()=>{document.documentElement.dataset.theme=theme;try{localStorage.setItem('portfolio-theme',theme)}catch{}},[theme]);useEffect(()=>{document.documentElement.lang=language.toLowerCase();try{localStorage.setItem('portfolio-language',language)}catch{}},[language]);return <LanguageContext.Provider value={{language,setLanguage}}><ScrollToTop/><RouteMetadata/><Routes><Route path="/" element={<Navigate to="/en" replace/>}/><Route path="/en" element={<Home theme={theme} setTheme={setTheme}/>}/><Route path="/en/about" element={<About theme={theme} setTheme={setTheme}/>}/><Route path="/en/skills" element={<Skills theme={theme} setTheme={setTheme}/>}/><Route path="/en/projects" element={<Projects theme={theme} setTheme={setTheme}/>}/><Route path="/en/experience" element={<Experience theme={theme} setTheme={setTheme}/>}/><Route path="/en/education" element={<Education theme={theme} setTheme={setTheme}/>}/><Route path="/en/contact" element={<Contact theme={theme} setTheme={setTheme}/>}/><Route path="*" element={<NotFound theme={theme} setTheme={setTheme}/>}/></Routes></LanguageContext.Provider>}
