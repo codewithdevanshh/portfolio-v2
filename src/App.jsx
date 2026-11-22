@@ -326,6 +326,50 @@ Object.assign(translations.ES, {
   'View LinkedIn profile':'Ver perfil de LinkedIn'
 });
 
+Object.assign(translations.ES, {
+  "Projects built through": "Proyectos creados mediante",
+  "hands-on engineering.": "práctica de ingeniería.",
+  "A selection of personal projects that demonstrate application development, data handling, user workflows and practical problem-solving. These projects complement my professional exposure to cloud and operations.": "Una selección de proyectos personales que muestran desarrollo de aplicaciones, gestión de datos, flujos de usuario y resolución práctica de problemas. Complementan mi experiencia profesional con cloud y operaciones.",
+  "Project archive": "Archivo de proyectos",
+  "ALL": "TODOS",
+  "FULL STACK": "FULL STACK",
+  "FRONTEND": "FRONTEND",
+  "UTILITY": "UTILIDADES",
+  "E-COMMERCE": "COMERCIO ELECTRÓNICO",
+  "PRIVATE SOURCE": "CÓDIGO PRIVADO",
+  "LUNELLE": "LUNELLE",
+  "A skincare e-commerce experience with product-focused pages, shopping interactions and a wishlist flow. Built with a modern Next.js and TypeScript frontend, with Supabase used for backend services.": "Una experiencia de comercio electrónico de cuidado de la piel con páginas de productos, interacciones de compra y lista de deseos. Desarrollada con Next.js y TypeScript, con Supabase para los servicios backend.",
+  "Next.js": "Next.js",
+  "TypeScript": "TypeScript",
+  "Supabase": "Supabase",
+  "E-commerce": "Comercio electrónico",
+  "Wishlist": "Lista de deseos",
+  "Private source · available on request": "Código privado · disponible bajo solicitud",
+  "iNotebook — MERN Notes App": "iNotebook — App de notas MERN",
+  "A full-stack notes application built with the MERN stack. Users can create, view, update and delete personal notes, with authentication and password hashing to keep account access protected.": "Una aplicación de notas full-stack desarrollada con MERN. Permite crear, consultar, actualizar y eliminar notas personales, con autenticación y hash de contraseñas para proteger el acceso.",
+  "MongoDB": "MongoDB",
+  "Express.js": "Express.js",
+  "React": "React",
+  "Node.js": "Node.js",
+  "Authentication": "Autenticación",
+  "Image Gallery App": "Aplicación de galería de imágenes",
+  "A searchable image gallery that lets users discover and browse images through a clean, responsive interface. The project also includes a live deployment for trying the experience.": "Una galería de imágenes con búsqueda para descubrir y explorar imágenes mediante una interfaz clara y adaptable. El proyecto también cuenta con una versión online para probarlo.",
+  "JavaScript": "JavaScript",
+  "Image Search": "Búsqueda de imágenes",
+  "Responsive UI": "Interfaz adaptable",
+  "Clothing Website": "Tienda de ropa",
+  "A fashion-focused website project featuring a product-led browsing experience and a responsive storefront layout, built to practise modern frontend development and e-commerce presentation.": "Un sitio web de moda con navegación centrada en productos y una tienda adaptable, creado para practicar desarrollo frontend moderno y presentación de comercio electrónico.",
+  "HTML": "HTML",
+  "CSS": "CSS",
+  "E-commerce UI": "Interfaz e-commerce",
+  "Encrypt & Decrypt": "Cifrar y descifrar",
+  "A lightweight browser-based utility for encrypting and decrypting text. The project focuses on a straightforward input-and-output workflow and a simple interface for trying the transformation.": "Una herramienta ligera en el navegador para cifrar y descifrar texto. Se centra en un flujo sencillo de entrada y salida y una interfaz simple para probar la transformación.",
+  "Encryption": "Cifrado",
+  "Web Utility": "Herramienta web",
+  "Source": "Código fuente",
+  "Live demo": "Demo en vivo"
+});
+
 function LocalizedTree({ children }) {
   const { language } = useContext(LanguageContext)
   const dictionary = translations[language] || {}
